@@ -71,6 +71,7 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Toast.makeText(MainActivity2.this, "position"+position, Toast.LENGTH_SHORT).show();
