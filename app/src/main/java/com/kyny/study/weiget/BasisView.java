@@ -33,6 +33,7 @@ public class BasisView extends View {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
