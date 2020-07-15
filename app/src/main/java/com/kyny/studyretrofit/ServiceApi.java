@@ -28,7 +28,7 @@ public interface ServiceApi {
     //相当于 &key=?
     @POST("/user/register")
     Observable<User> register(@Query("name") String name,
-                                     @Query("password") String password);
+                              @Query("password") String password);
     @GET("user_article/list/{page}/json")
     Observable<ArticleListBean> getUserArticleList(@Path("page") int page);
 

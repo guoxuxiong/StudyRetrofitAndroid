@@ -22,7 +22,9 @@ import java.util.ListIterator;
  * 邮箱:553605867@qq.com
  * 描述:
  */
-public abstract class MvpActivity <P extends MvpPresenter> extends AppCompatActivity implements MvpView, View.OnClickListener {
+public abstract class MvpActivity <P extends MvpPresenter> extends
+        AppCompatActivity implements
+        MvpView, View.OnClickListener {
     public  P presenter;
     private static Activity mCurrentActivity;// 对所有activity进行管理
     public static List<Activity> mActivities = new LinkedList<Activity>();
@@ -107,7 +109,7 @@ public abstract class MvpActivity <P extends MvpPresenter> extends AppCompatActi
 
     @Override
     public void onBackPressed() {
-//        if(mCurrentActivity instanceof MainActivity)
+//        if(mCurrentActivity instanceof MainActivity2)
 //        {
 //            //如果是主页面
 //            if (System.currentTimeMillis() - mPreTime > 2000) {// 两次点击间隔大于2秒

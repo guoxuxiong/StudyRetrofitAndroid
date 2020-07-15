@@ -50,7 +50,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
                    @Override
                    public void onComplete() {
                        Log.i("ssssssssssss","******onComplete****");
-
+                       dismissLoadingDialog();
                    }
                });
    }

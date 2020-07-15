@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import com.kyny.mvp.MvpActivity;
 import com.kyny.mvp.MvpPresenter;
-import com.kyny.studyretrofit.MainActivity;
 import com.kyny.studyretrofit.utils.dialog.MyLoadingDialog;
 import com.kyny.studyretrofit.utils.dialog.NetworkUtils;
 
