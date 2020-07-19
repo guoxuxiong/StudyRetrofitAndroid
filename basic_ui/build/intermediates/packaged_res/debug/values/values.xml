@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="basic_ui_action_bar_bg">@color/main</color>
+    <color name="basic_ui_action_bar_bottom_line">@color/line</color>
+    <color name="basic_ui_action_bar_icon">@color/text_invert</color>
+    <color name="basic_ui_action_bar_text">@color/text_invert</color>
+    <color name="basic_ui_action_bar_text_alpha">@color/text_invert_alpha</color>
+    <color name="basic_ui_dialog_loading_circle">@color/main</color>
+    <color name="basic_ui_dialog_loading_rectangle">@color/transparent</color>
+    <string name="basic_ui_app_name">BasicUI</string>
+    <string name="basic_ui_dialog_btn_close">关闭</string>
+    <string name="basic_ui_dialog_btn_no">取消</string>
+    <string name="basic_ui_dialog_btn_yes">确定</string>
+    <string name="basic_ui_dialog_download_state_downloading">下载更新中...</string>
+    <string name="basic_ui_dialog_download_state_install">立即安装</string>
+    <string name="basic_ui_dialog_permission_close">暂不授权</string>
+    <string name="basic_ui_dialog_permission_description">我们需要获取%s权限以确保应用的正常运行，请点击去授权完成权限申请。</string>
+    <string name="basic_ui_dialog_permission_description_go_setting">您已拒绝应用使用%s权限，这将影响功能的正常运行，请前往设置打开权限。</string>
+    <string name="basic_ui_dialog_permission_description_title_holder">相关</string>
+    <string name="basic_ui_dialog_permission_next">去授权</string>
+    <string name="basic_ui_dialog_permission_next_go_setting">去设置</string>
+    <string name="basic_ui_dialog_permission_title_calendar">日历</string>
+    <string name="basic_ui_dialog_permission_title_camera">照相机</string>
+    <string name="basic_ui_dialog_permission_title_contacts">通讯录</string>
+    <string name="basic_ui_dialog_permission_title_location">定位</string>
+    <string name="basic_ui_dialog_permission_title_microphone">麦克风</string>
+    <string name="basic_ui_dialog_permission_title_phone">手机</string>
+    <string name="basic_ui_dialog_permission_title_sensors">传感器</string>
+    <string name="basic_ui_dialog_permission_title_sms">短信</string>
+    <string name="basic_ui_dialog_permission_title_storage">存储空间</string>
+    <string name="basic_ui_dialog_permission_title_unknow">未知</string>
+    <string name="basic_ui_dialog_update_no">暂不更新</string>
+    <string name="basic_ui_dialog_update_title">发现新版本</string>
+    <string name="basic_ui_dialog_update_yes">立即更新</string>
+    <style name="basic_ui_LoadingBarC" parent="Widget.MaterialProgressBar.ProgressBar.NoPadding">
+    </style>
+    <style name="basic_ui_LoadingBarH" parent="Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding">
+        <item name="android:minHeight">1dp</item>
+        <item name="android:maxHeight">5dp</item>
+    </style>
+</resources>

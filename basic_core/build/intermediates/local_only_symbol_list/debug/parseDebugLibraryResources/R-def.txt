@@ -1,0 +1,8 @@
+R_DEF: Internal format may change without notice
+local
+id basic_core_fl_fragment
+id basic_core_tv_msg
+layout basic_core_activity_single_frag
+layout basic_core_fragment_not_found
+string app_name
+string basic_core_fragment_empty

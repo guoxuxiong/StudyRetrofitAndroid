@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply from: "../basic.gradle"
+
+android {
+}
+
+dependencies {
+    api project(":basic_utils")
+    api project(":basic_res")
+
+    api rootProject.ext.dependencies.design
+    api rootProject.ext.dependencies.smartRefreshLayout
+    api rootProject.ext.dependencies.bravh
+    api rootProject.ext.dependencies.recyclerview
+    api rootProject.ext.dependencies.anyDialog
+    api rootProject.ext.dependencies.anyLayer
+    api rootProject.ext.dependencies.actionBarEx
+    api rootProject.ext.dependencies.percentImageView
+    api rootProject.ext.dependencies.roundedimageview
+    api rootProject.ext.dependencies.circleimageview
+    api rootProject.ext.dependencies.magicIndicator
+    api rootProject.ext.dependencies.materialProgressBar
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}

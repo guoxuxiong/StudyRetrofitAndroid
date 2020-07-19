@@ -1,0 +1,29 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="per.goweii.basic.core"
+4    android:versionCode="30"
+5    android:versionName="1.2.7" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:4:5-67
+11-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:5:5-79
+12-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:5:22-76
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:6:5-76
+13-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:6:22-73
+14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+14-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:7:5-80
+14-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:7:22-77
+15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+15-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:8:5-81
+15-->F:\StudySpace\StudyWanAndroid\basic_core\src\main\AndroidManifest.xml:8:22-78
+16
+17</manifest>
