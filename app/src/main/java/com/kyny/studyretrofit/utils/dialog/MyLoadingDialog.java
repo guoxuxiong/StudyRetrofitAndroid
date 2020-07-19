@@ -7,8 +7,7 @@ import android.graphics.Point;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.annotation.StringRes;
+
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -17,6 +16,9 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.annotation.StringRes;
 
 import com.kyny.studyretrofit.R;
 

@@ -1,9 +1,10 @@
 package com.kyny.studyretrofit;
 
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.kyny.base.BaseActivity;
 import com.kyny.mvp.MvpActivity;

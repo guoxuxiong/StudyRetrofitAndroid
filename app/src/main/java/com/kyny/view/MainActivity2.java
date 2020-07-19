@@ -3,16 +3,21 @@ package com.kyny.view;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.kyny.adapter.TestAdapter;
+import com.kyny.base.BaseActivity;
+import com.kyny.presenter.MainPresenter;
+import com.kyny.presenter.MainView;
+import com.kyny.studyretrofit.ArticleListBean;
 import com.kyny.studyretrofit.R;
 import com.kyny.studyretrofit.User;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -29,7 +34,7 @@ import per.goweii.basic.core.permission.PermissionUtils;
 import per.goweii.basic.ui.dialog.DownloadDialog;
 import per.goweii.basic.ui.dialog.UpdateDialog;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends BaseActivity<MainPresenter> implements MainView {
     SmartRefreshLayout refreshLayout;
     RecyclerView recyclerView;
     List<User> strings;
@@ -39,17 +44,28 @@ public class MainActivity2 extends AppCompatActivity {
     private Context mContext;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main1);
+    protected int getLayoutId() {
+        return R.layout.activity_main1;
+    }
+
+    @Nullable
+    @Override
+    protected MainPresenter initPresenter() {
+        return new MainPresenter();
+    }
+
+
+    @Override
+    protected void initView() {
         refreshLayout = findViewById(R.id.refresh);
         recyclerView = findViewById(R.id.recycler);
         refreshLayout.setEnableAutoLoadMore(true);//开启自动加载功能（非必须）
         adapter = new TestAdapter(R.layout.item_main, initData());
-        downDialog();
+
         recyclerView.setAdapter(adapter);
+        downDialog();
         mContext = this;
-//触发自动刷新
+        //触发自动刷新
         refreshLayout.autoRefresh();
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
@@ -93,7 +109,12 @@ public class MainActivity2 extends AppCompatActivity {
                 Toast.makeText(MainActivity2.this, "position" + position, Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    @Override
+    protected void loadData() {
+
+        presenter.list(1);
     }
 
     private List<User> initData() {
@@ -112,7 +133,8 @@ public class MainActivity2 extends AppCompatActivity {
         mRuntimeRequester = PermissionUtils.request(new RequestListener() {
                                                         @Override
                                                         public void onSuccess() {
-                                                            Toast.makeText(mContext, "申请成功", Toast.LENGTH_SHORT).show();
+//                                                            Toast.makeText(mContext, "申请成功", Toast.LENGTH_SHORT).show();
+                                                        Log.i("ddd","success");
                                                         }
 
                                                         @Override
@@ -131,5 +153,11 @@ public class MainActivity2 extends AppCompatActivity {
         if (mRuntimeRequester != null) {
             mRuntimeRequester.onActivityResult(requestCode);
         }
+    }
+
+    @Override
+    public void getUserArticleList(ArticleListBean articleListBean) {
+        Log.i("测试",articleListBean.getData().getDatas().size()+"sss");
+
     }
 }

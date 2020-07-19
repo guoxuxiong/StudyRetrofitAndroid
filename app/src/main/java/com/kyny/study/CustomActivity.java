@@ -1,7 +1,9 @@
 package com.kyny.study;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.kyny.study.weiget.BasisView;
 import com.kyny.studyretrofit.R;
