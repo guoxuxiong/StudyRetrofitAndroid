@@ -13,5 +13,6 @@ public class CustomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom);
         basisView=findViewById(R.id.basisview);
+
     }
 }

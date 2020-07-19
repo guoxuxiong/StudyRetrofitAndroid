@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
+apply from: "../module.gradle"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "com.kyny.studyretrofit"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -39,8 +40,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'com.github.goweii.LazyFragment:lazyfragment:1.1.2'
+    implementation rootProject.ext.dependencies.lazyfragment
 //    implementation files('libs/businessobjects.jar')
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.49'
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation rootProject.ext.dependencies.smartRefreshLayout
+
+//    implementation rootProject.ext.dependencies.butterknife
+//    annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
+
+
 }
