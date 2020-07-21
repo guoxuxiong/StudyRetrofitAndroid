@@ -5,14 +5,9 @@ import android.content.Context;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.kyny.mvp.MvpPresenter;
-import com.kyny.mvp.MvpView;
-import com.kyny.studyretrofit.MainActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -111,7 +106,7 @@ public abstract class MvpActivity <P extends MvpPresenter> extends
 
     @Override
     public void onBackPressed() {
-//        if(mCurrentActivity instanceof MainActivity2)
+//        if(mCurrentActivity instanceof LoadingDataActivity)
 //        {
 //            //如果是主页面
 //            if (System.currentTimeMillis() - mPreTime > 2000) {// 两次点击间隔大于2秒
@@ -121,13 +116,13 @@ public abstract class MvpActivity <P extends MvpPresenter> extends
 //                return;
 //            }
 //            exitApp();
-        }
+//        }
 //        if(mCurrentActivity instanceof LoginActivity)
 //        {
-//            exitApp();
+            exitApp();
 //        }
 //        super.onBackPressed();//finish()
-//    }
+    }
 public static void exitApp() {
 
     ListIterator<Activity> iterator = mActivities.listIterator();

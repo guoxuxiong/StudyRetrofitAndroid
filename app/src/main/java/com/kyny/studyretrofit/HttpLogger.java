@@ -3,7 +3,12 @@ package com.kyny.studyretrofit;
 import android.util.Log;
 
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 
@@ -158,6 +163,23 @@ public class HttpLogger implements HttpLoggingInterceptor.Logger {
             }
         }
         return outBuffer.toString();
+    }
+    public static RequestBody getRequestBody(HashMap<String, String> hashMap) {
+        StringBuffer data = new StringBuffer();
+        if (hashMap != null && hashMap.size() > 0) {
+            Iterator iter = hashMap.entrySet().iterator();
+            while (iter.hasNext()) {
+                Map.Entry entry = (Map.Entry) iter.next();
+                Object key = entry.getKey();
+                Object val = entry.getValue();
+                data.append(key).append("=").append(val).append("&");
+            }
+        }
+        String jso = data.substring(0, data.length() - 1);
+        RequestBody requestBody =
+                RequestBody.create(MediaType.parse("application/x-www-form-urlencoded; charset=utf-8"),jso);
+
+        return requestBody;
     }
 }
 

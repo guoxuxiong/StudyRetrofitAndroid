@@ -3,6 +3,7 @@ package com.kyny.presenter;
 import com.kyny.mvp.BaseView;
 import com.kyny.mvp.MvpView;
 import com.kyny.studyretrofit.ArticleListBean;
+import com.kyny.studyretrofit.LoginBean;
 
 /**
  * @author: guoxuxiong
@@ -13,4 +14,7 @@ import com.kyny.studyretrofit.ArticleListBean;
 public interface MainView  extends MvpView {
 
 void  getUserArticleList(ArticleListBean articleListBean);
+
+    //获取登录token
+    void getLoginToke(LoginBean mLoginBean);
 }

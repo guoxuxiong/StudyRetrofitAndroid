@@ -12,142 +12,119 @@ public class LoginBean {
 
 
     /**
-     * record : {"alarmMsg":"发生紧急事故，请尽快来人救援！","alarmTel":"110","deptId":"301","id":"14","locInterval":"30","orgId":"","phoneNumber":"17378384228","roleCode":"mainData,driver","roleNames":"基本权限,驾驶员","siteId":"1000","siteName":"重庆分公司","username":"邓资华"}
-     * resultCode : 1
+     * access_token : 6a5b39fd-43a5-4d1f-9fad-ac4925663c1b
+     * token_type : bearer
+     * refresh_token : 326b6792-c85e-445e-8811-0c63ac939f2a
+     * expires_in : 42243
+     * scope : server
+     * tenant_id : 3
+     * license : made by kyny
+     * user_id : 1
+     * site_id : 192
+     * active : true
+     * dept_id : 1
+     * username : sysadmin
      */
 
-    private String record;
-    private String resultCode;
-    /**
-     * alarmMsg : 发生紧急事故，请尽快来人救援！
-     * alarmTel : 110
-     * deptId : 301
-     * id : 14
-     * locInterval : 30
-     * orgId :
-     * phoneNumber : 17378384228
-     * roleCode : mainData,driver
-     * roleNames : 基本权限,驾驶员
-     * siteId : 1000
-     * siteName : 重庆分公司
-     * username : 邓资华
-     */
-
-    private String alarmMsg;
-    private String alarmTel;
-    private String deptId;
-    private String id;
-    private String locInterval;
-    private String orgId;
-    private String phoneNumber;
-    private String roleCode;
-    private String roleNames;
-    private String siteId;
-    private String siteName;
+    private String access_token;
+    private String token_type;
+    private String refresh_token;
+    private int expires_in;
+    private String scope;
+    private int tenant_id;
+    private String license;
+    private int user_id;
+    private int site_id;
+    private boolean active;
+    private int dept_id;
     private String username;
 
-    public String getRecord() {
-        return record;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public void setRecord(String record) {
-        this.record = record;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
-    public String getResultCode() {
-        return resultCode;
+    public String getToken_type() {
+        return token_type;
     }
 
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public void setToken_type(String token_type) {
+        this.token_type = token_type;
     }
 
-    public String getAlarmMsg() {
-        return alarmMsg;
+    public String getRefresh_token() {
+        return refresh_token;
     }
 
-    public void setAlarmMsg(String alarmMsg) {
-        this.alarmMsg = alarmMsg;
+    public void setRefresh_token(String refresh_token) {
+        this.refresh_token = refresh_token;
     }
 
-    public String getAlarmTel() {
-        return alarmTel;
+    public int getExpires_in() {
+        return expires_in;
     }
 
-    public void setAlarmTel(String alarmTel) {
-        this.alarmTel = alarmTel;
+    public void setExpires_in(int expires_in) {
+        this.expires_in = expires_in;
     }
 
-    public String getDeptId() {
-        return deptId;
+    public String getScope() {
+        return scope;
     }
 
-    public void setDeptId(String deptId) {
-        this.deptId = deptId;
+    public void setScope(String scope) {
+        this.scope = scope;
     }
 
-    public String getId() {
-        return id;
+    public int getTenant_id() {
+        return tenant_id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTenant_id(int tenant_id) {
+        this.tenant_id = tenant_id;
     }
 
-    public String getLocInterval() {
-        return locInterval;
+    public String getLicense() {
+        return license;
     }
 
-    public void setLocInterval(String locInterval) {
-        this.locInterval = locInterval;
+    public void setLicense(String license) {
+        this.license = license;
     }
 
-    public String getOrgId() {
-        return orgId;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public int getSite_id() {
+        return site_id;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setSite_id(int site_id) {
+        this.site_id = site_id;
     }
 
-    public String getRoleCode() {
-        return roleCode;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setRoleCode(String roleCode) {
-        this.roleCode = roleCode;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
-    public String getRoleNames() {
-        return roleNames;
+    public int getDept_id() {
+        return dept_id;
     }
 
-    public void setRoleNames(String roleNames) {
-        this.roleNames = roleNames;
-    }
-
-    public String getSiteId() {
-        return siteId;
-    }
-
-    public void setSiteId(String siteId) {
-        this.siteId = siteId;
-    }
-
-    public String getSiteName() {
-        return siteName;
-    }
-
-    public void setSiteName(String siteName) {
-        this.siteName = siteName;
+    public void setDept_id(int dept_id) {
+        this.dept_id = dept_id;
     }
 
     public String getUsername() {

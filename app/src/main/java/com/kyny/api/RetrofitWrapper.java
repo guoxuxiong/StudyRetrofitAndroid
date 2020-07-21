@@ -1,10 +1,9 @@
-package com.kyny.studyretrofit;
+package com.kyny.api;
 
 import android.util.Log;
 
-import com.kyny.studyretrofit.utils.ICallback;
+import com.kyny.studyretrofit.BuildConfig;
 
-import java.io.IOException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -17,10 +16,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -36,7 +32,7 @@ public class RetrofitWrapper {
     private Retrofit mRetrofit;
     private final OkHttpClient.Builder builder;
     HttpLoggingInterceptor loggingInterceptor;
-    private  String mAddress="https://www.wanandroid.com/";
+    private  String mAddress="http://172.16.3.231:9998";
     public static RetrofitWrapper getInstance()
     {
         RetrofitWrapper instance;
@@ -71,7 +67,7 @@ public class RetrofitWrapper {
             //不需要错误重连
             builder.retryOnConnectionFailure(false);
         }else {
-            //错误重连
+     //       错误重连
             builder.retryOnConnectionFailure(true);
         }
         //获取实例
@@ -86,6 +82,7 @@ public class RetrofitWrapper {
 //                .addConverterFactory(JsonConverterFactory.create())
                 //添加rx转换器，用来生成对应"Call"的CallAdapter的CallAdapterFactory
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+
                 .client(build)
                 .build();
     }
@@ -132,9 +129,9 @@ public class RetrofitWrapper {
      * 设置读取超时时间，连接超时时间，写入超时时间值
      */
     private void initTimeOut() {
-        builder.readTimeout(20000, TimeUnit.SECONDS);
-        builder.connectTimeout(10000, TimeUnit.SECONDS);
-        builder.writeTimeout(20000, TimeUnit.SECONDS);
+        builder.readTimeout(2000, TimeUnit.SECONDS);
+        builder.connectTimeout(1000, TimeUnit.SECONDS);
+        builder.writeTimeout(2000, TimeUnit.SECONDS);
         //错误重连
         builder.retryOnConnectionFailure(true);
     }

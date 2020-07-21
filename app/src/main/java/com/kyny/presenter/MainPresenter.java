@@ -4,13 +4,20 @@ import android.util.Log;
 
 import com.kyny.mvp.MvpPresenter;
 import com.kyny.studyretrofit.ArticleListBean;
-import com.kyny.studyretrofit.RetrofitWrapper;
-import com.kyny.studyretrofit.ServiceApi;
+import com.kyny.studyretrofit.HttpLogger;
+import com.kyny.studyretrofit.LoginBean;
+import com.kyny.api.RetrofitWrapper;
+import com.kyny.api.ServiceApi;
+import com.kyny.studyretrofit.TokenUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.RequestBody;
 
 /**
  * @author: guoxuxiong
@@ -36,15 +43,16 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
                    @Override
                    public void onNext(ArticleListBean mJsonObject) {
-                       Log.i("ssssssssssss",mJsonObject.getData().getDatas().size()+"");
+
+//                       Log.i("ssssssssssss",mJsonObject.getData().getDatas().size()+"");
 //                       tvTitle.setText(mJsonObject.getData().getDatas().size()+"");
-                       getBaseView().getUserArticleList(mJsonObject);
+                     getBaseView().getUserArticleList(mJsonObject);
                    }
 
                    @Override
                    public void onError(final Throwable e) {
                        Log.i("ssssssssssss",e.toString());
-                       dismissLoadingDialog();
+//                       dismissLoadingDialog();
                    }
 
                    @Override
@@ -53,6 +61,70 @@ public class MainPresenter extends MvpPresenter<MainView> {
                        dismissLoadingDialog();
                    }
                });
+   }
+   public  void toke(){
+       HashMap<String, String> hashMap = new HashMap<>();
+       hashMap.put("scope", "server");
+       hashMap.put("username", "sysadmin");
+       hashMap.put("password", "kyny@123");
+       hashMap.put("grant_type", "password");
+       RequestBody requestBody = HttpLogger.getRequestBody(hashMap);
+       serviceApi.toke(requestBody)
+               .subscribeOn(Schedulers.newThread())
+               .subscribeOn(AndroidSchedulers.mainThread())
+               .subscribe(new Observer<LoginBean>() {
+                   @Override
+                   public void onSubscribe(Disposable d) {
+
+                   }
+                   @Override
+                   public void onNext(LoginBean mLoginBean) {
+
+                       getBaseView().getLoginToke(mLoginBean);
+                   }
+
+                   @Override
+                   public void onError(final Throwable e) {
+                       dismissLoadingDialog();
+                   }
+
+                   @Override
+                   public void onComplete() {
+                       dismissLoadingDialog();
+                   }
+               });
+
+   }
+   public  void workIndex(){
+       Map<String,String>headersMap=new HashMap<>();
+       headersMap.put("Authorization","Bearer "+ TokenUtils.getToken());
+       serviceApi.workIndex(headersMap,1)
+               .subscribeOn(Schedulers.newThread())
+               .subscribeOn(AndroidSchedulers.mainThread())
+               .subscribe(new Observer<Object>() {
+                   @Override
+                   public void onSubscribe(Disposable d) {
+
+                   }
+
+                   @Override
+                   public void onNext(Object mJsonObject) {
+                        Log.i("sss",mJsonObject.toString());
+                   }
+
+                   @Override
+                   public void onError(final Throwable e) {
+                       Log.i("ssssssssssss",e.toString());
+//                       dismissLoadingDialog();
+                   }
+
+                   @Override
+                   public void onComplete() {
+                       Log.i("ssssssssssss","******onComplete****");
+                       dismissLoadingDialog();
+                   }
+               });
+
    }
 
 }

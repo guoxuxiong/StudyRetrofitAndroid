@@ -17,6 +17,9 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
+import per.goweii.basic.utils.SPUtils;
+import per.goweii.basic.utils.Utils;
+
 /**
  * @author: guoxuxiong
  * 时间:2020/7/15
@@ -24,6 +27,12 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
  * 描述:
  */
 public class MyApp extends Application {
+    private  static   Context  mContext;
+
+    public static  Context getmContext() {
+        return mContext;
+    }
+    private static final String SP_NAME = "study_retrofit";
     /**
      * 设置下拉刷新样式
      */
@@ -55,5 +64,7 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext=this;
+        Utils.init(this);
     }
 }

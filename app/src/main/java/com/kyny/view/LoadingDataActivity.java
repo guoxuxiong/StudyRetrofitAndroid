@@ -18,7 +18,9 @@ import com.kyny.base.BaseActivity;
 import com.kyny.presenter.MainPresenter;
 import com.kyny.presenter.MainView;
 import com.kyny.studyretrofit.ArticleListBean;
+import com.kyny.studyretrofit.LoginBean;
 import com.kyny.studyretrofit.R;
+import com.kyny.studyretrofit.TokenUtils;
 import com.kyny.studyretrofit.User;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -31,10 +33,11 @@ import java.util.List;
 import per.goweii.anypermission.RequestListener;
 import per.goweii.anypermission.RuntimeRequester;
 import per.goweii.basic.core.permission.PermissionUtils;
-import per.goweii.basic.ui.dialog.DownloadDialog;
-import per.goweii.basic.ui.dialog.UpdateDialog;
+import per.goweii.basic.ui.toast.ToastMaker;
+import per.goweii.basic.utils.LogUtils;
+import per.goweii.basic.utils.SPUtils;
 
-public class MainActivity2 extends BaseActivity<MainPresenter> implements MainView {
+public class LoadingDataActivity extends BaseActivity<MainPresenter> implements MainView {
     SmartRefreshLayout refreshLayout;
     RecyclerView recyclerView;
     List<User> strings;
@@ -63,7 +66,7 @@ public class MainActivity2 extends BaseActivity<MainPresenter> implements MainVi
         adapter = new TestAdapter(R.layout.item_main, initData());
 
         recyclerView.setAdapter(adapter);
-        downDialog();
+//        downDialog();
         mContext = this;
         //触发自动刷新
         refreshLayout.autoRefresh();
@@ -75,7 +78,7 @@ public class MainActivity2 extends BaseActivity<MainPresenter> implements MainVi
                     public void run() {
 //                        strings.clear();
 //                        adapter .refresh(initData());
-
+//                        presenter.list(1);
 
                         adapter.notifyDataSetChanged();
                         refreshLayout.finishRefresh();
@@ -87,7 +90,7 @@ public class MainActivity2 extends BaseActivity<MainPresenter> implements MainVi
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull final RefreshLayout refreshLayout) {
-                Toast.makeText(MainActivity2.this, "下拉刷新", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoadingDataActivity.this, "下拉刷新", Toast.LENGTH_SHORT).show();
                 refreshLayout.getLayout().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -106,7 +109,7 @@ public class MainActivity2 extends BaseActivity<MainPresenter> implements MainVi
 
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Toast.makeText(MainActivity2.this, "position" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoadingDataActivity.this, "position" + position, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -114,7 +117,12 @@ public class MainActivity2 extends BaseActivity<MainPresenter> implements MainVi
     @Override
     protected void loadData() {
 
-        presenter.list(1);
+//        presenter.list(1);
+        presenter.toke();
+        presenter.workIndex();
+//        LogUtils.d("tag",);
+
+        downDialog();
     }
 
     private List<User> initData() {
@@ -142,7 +150,9 @@ public class MainActivity2 extends BaseActivity<MainPresenter> implements MainVi
                                                             Toast.makeText(mContext, "申请失败", Toast.LENGTH_SHORT).show();
 
                                                         }
-                                                    }, mContext, REQ_CODE_PERMISSION, Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                                    },
+                mContext, REQ_CODE_PERMISSION,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE);
 
     }
@@ -157,7 +167,19 @@ public class MainActivity2 extends BaseActivity<MainPresenter> implements MainVi
 
     @Override
     public void getUserArticleList(ArticleListBean articleListBean) {
-        Log.i("测试",articleListBean.getData().getDatas().size()+"sss");
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                LogUtils.d("测试",articleListBean.getData().getDatas().size()+"sss");
 
+            }
+        });
+    }
+
+    @Override
+    public void getLoginToke(LoginBean mLoginBean) {
+        LogUtils.d("tag",mLoginBean.getAccess_token());
+
+        SPUtils.getInstance().save("token",mLoginBean.getAccess_token());
     }
 }
