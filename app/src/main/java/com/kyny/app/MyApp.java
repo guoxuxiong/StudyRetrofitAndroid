@@ -49,7 +49,7 @@ public class MyApp extends Application {
                 layout.setEnableOverScrollBounce(true);
                 layout.setEnableLoadMoreWhenContentNotFull(true);
                 layout.setEnableScrollContentWhenRefreshed(true);
-                layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
+//                layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
             }
         });
         SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {

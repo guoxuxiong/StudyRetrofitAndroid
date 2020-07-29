@@ -5,9 +5,12 @@ import android.content.Context;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.kyny.view.MainActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -19,24 +22,26 @@ import java.util.ListIterator;
  * 邮箱:553605867@qq.com
  * 描述:
  */
-public abstract class MvpActivity <P extends MvpPresenter> extends
+public abstract class MvpActivity<P extends MvpPresenter> extends
         AppCompatActivity implements
         MvpView, View.OnClickListener {
-    public  P presenter;
+    public P presenter;
     private static Activity mCurrentActivity;// 对所有activity进行管理
     public static List<Activity> mActivities = new LinkedList<Activity>();
     protected Bundle savedInstanceState;
-    private  static  long mPreTime;
+    private static long mPreTime;
 
     /**
      * 获取布局资源文件
      */
     protected abstract int getLayoutId();
+
     /**
      * 初始化presenter
      */
     @Nullable
     protected abstract P initPresenter();
+
     @Override
     public void onClick(View view) {
 
@@ -80,14 +85,12 @@ public abstract class MvpActivity <P extends MvpPresenter> extends
             mActivities.add(this);
         }
         initWindow();
-        if(getLayoutId()>0)
-        {
+        if (getLayoutId() > 0) {
             setContentView(getLayoutId());
         }
         //实例化P Presenter
-        presenter=initPresenter();
-        if(presenter!=null)
-        {
+        presenter = initPresenter();
+        if (presenter != null) {
             //实例化
             presenter.attach(this);
         }
@@ -96,42 +99,41 @@ public abstract class MvpActivity <P extends MvpPresenter> extends
 
     private void initWindow() {
     }
+
     protected void initialize() {
         initView();
         loadData();
     }
 
     protected abstract void initView();
+
     protected abstract void loadData();
 
     @Override
     public void onBackPressed() {
-//        if(mCurrentActivity instanceof LoadingDataActivity)
-//        {
-//            //如果是主页面
-//            if (System.currentTimeMillis() - mPreTime > 2000) {// 两次点击间隔大于2秒
-//
-//                Toast.makeText(MyApp.getContext(), "再按一次，退出应用", Toast.LENGTH_SHORT).show();
-//                mPreTime = System.currentTimeMillis();
-//                return;
-//            }
-//            exitApp();
-//        }
-//        if(mCurrentActivity instanceof LoginActivity)
-//        {
+        if (mCurrentActivity instanceof MainActivity) {
+            //如果是主页面
+            if (System.currentTimeMillis() - mPreTime > 2000) {// 两次点击间隔大于2秒
+
+                Toast.makeText(mCurrentActivity, "再按一次，退出应用", Toast.LENGTH_SHORT).show();
+                mPreTime = System.currentTimeMillis();
+                return;
+            }
             exitApp();
-//        }
-//        super.onBackPressed();//finish()
+        }
+        super.onBackPressed();//finish()
     }
-public static void exitApp() {
 
-    ListIterator<Activity> iterator = mActivities.listIterator();
+    public static void exitApp() {
 
-    while (iterator.hasNext()) {
-        Activity next = iterator.next();
-        next.finish();
+        ListIterator<Activity> iterator = mActivities.listIterator();
+
+        while (iterator.hasNext()) {
+            Activity next = iterator.next();
+            next.finish();
+        }
     }
-}
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -143,15 +145,14 @@ public static void exitApp() {
         super.onPause();
         mCurrentActivity = null;
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        synchronized (mActivities)
-        {
+        synchronized (mActivities) {
             mActivities.remove(this);
         }
-        if(presenter!=null)
-        {
+        if (presenter != null) {
             presenter.detach();
         }
 

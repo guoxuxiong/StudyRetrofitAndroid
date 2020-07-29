@@ -45,7 +45,8 @@ public interface ServiceApi {
 
     /**
      * 获取登录token
-     * @param requestBody
+     * 静态Header
+     * @param requestBody body
      * @return
      */
     @Headers({"Authorization:Basic dmlkZW9hbmFseXNpczp2aWRlb2FuYWx5c2lz"})
@@ -54,10 +55,10 @@ public interface ServiceApi {
 
     /**
      * 按单位获取电厂作业数据
-     * @param siteId
+     * @param headers 动态header
+     * @param siteId  站点Id
      * @return
      */
-//    @Headers(value = "Authorization:Bearer "+ TokenUtils.getToken())
     @GET("/smc/analysis/workIndex")
     Observable<Object> workIndex(@HeaderMap Map<String,String> headers, @Query("siteId") int siteId);
 

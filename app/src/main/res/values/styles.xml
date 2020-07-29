@@ -1,15 +1,38 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/background</item>
     </style>
     <style name="LoadingProgressDialog" parent="Theme.AppCompat.Dialog" tools:ignore="ResourceName">
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
+    <style name="ActionBar" tools:ignore="ResourceName">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/basic_ui_action_bar_bg</item>
+        <item name="ab_autoImmersion">true</item>
+        <item name="ab_bottomLineHeight">@dimen/action_bar_bottom_line_height</item>
+        <item name="ab_foregroundLayerLayout">@layout/basic_ui_loading_bar</item>
+        <item name="ab_statusBarColor">@color/transparent</item>
+        <item name="ab_titleBarHeight">@dimen/action_bar_height</item>
+    </style>
+
+    <style name="ActionBar.Common" tools:ignore="ResourceName">
+        <item name="abc_titleTextColor">@color/basic_ui_action_bar_text</item>
+        <item name="abc_leftIconColor">@color/basic_ui_action_bar_icon</item>
+        <item name="abc_leftIconPadding">13dp</item>
+        <item name="abc_leftIconMarginLeft">3dp</item>
+        <item name="abc_leftTextColor">@color/basic_ui_action_bar_text</item>
+        <item name="abc_rightIconColor">@color/basic_ui_action_bar_icon</item>
+        <item name="abc_rightIconPadding">13dp</item>
+        <item name="abc_rightIconMarginRight">3dp</item>
+        <item name="abc_rightTextColor">@color/basic_ui_action_bar_text</item>
+    </style>
+
 </resources>

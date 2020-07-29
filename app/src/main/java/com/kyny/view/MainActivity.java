@@ -30,12 +30,13 @@ public class MainActivity extends BaseActivity  {
 
     @Override
     protected void initView() {
+
     mBtnNetWork=findViewById(R.id.btn_net_work);
     mBtnScreen=findViewById(R.id.btn_screen);
     mBtnNetWork.setOnClickListener(this::onClick);
     mBtnScreen.setOnClickListener(this::onClick);
-    }
 
+    }
     @Override
     protected void loadData() {
 

@@ -6,7 +6,13 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
-<Button
+    <per.goweii.actionbarex.common.ActionBarCommon
+        android:id="@+id/abc"
+        style="@style/ActionBar.Common"
+        app:abc_rightIconRes="@mipmap/ic_add"
+        app:abc_titleText="首页" />
+
+    <Button
     android:id="@+id/btn_net_work"
     android:layout_width="match_parent"
     android:textSize="20sp"

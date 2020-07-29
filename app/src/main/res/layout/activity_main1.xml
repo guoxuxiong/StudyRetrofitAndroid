@@ -7,6 +7,11 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     >
+    <per.goweii.actionbarex.common.ActionBarCommon
+        android:id="@+id/abc"
+        style="@style/ActionBar.Common"
+        app:abc_rightIconRes="@mipmap/ic_add"
+        app:abc_titleText="首页" />
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refresh"
