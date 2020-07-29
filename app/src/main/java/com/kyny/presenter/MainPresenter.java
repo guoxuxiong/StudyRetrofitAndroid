@@ -95,6 +95,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
                });
 
    }
+   //获取工作票数据
    public  void workIndex(){
        Map<String,String>headersMap=new HashMap<>();
        headersMap.put("Authorization","Bearer "+ TokenUtils.getToken());
